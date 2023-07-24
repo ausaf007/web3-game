@@ -32,21 +32,22 @@ Make sure to have Ganache, Truffle, and NPM installed.
 
 ## How To Use In Dev?
 
-1. Get Ganache running locally. Add local Ganache network to Metamask and connect it to the local Ganache instance. Import atleast 2 accounts to metamask.
-2. Using Truffle, deploy Hasher smart contract locally and note the contract address.
-3. Navigate to `web3-game/`:
+1. Watch walkthrough [video](https://drive.google.com/file/d/1-MuR50nrHbe2P8SJea21bgAn93kA8bQL/view?usp=sharing)
+2. Get Ganache running locally. Add local Ganache network to Metamask and connect it to the local Ganache instance. Import atleast 2 accounts to metamask.
+3. Using Truffle, deploy Hasher smart contract locally and note the contract address.
+4. Navigate to `web3-game/`:
    ``` 
    cd /path/to/folder/web3-game/
    ```
-4. Open `.env.sample` file and fill in the `REACT_APP_HASHER_CONTRACT_ADDRESS` field with the deployed contract address. 
+5. Open `.env.sample` file and fill in the `REACT_APP_HASHER_CONTRACT_ADDRESS` field with the deployed contract address. 
    Other fields can be left as default. Then rename the file to `.env.development`. Here are some details about the fields in the config file:
     1. `REACT_APP_TIMEOUT`: Duration before which the other player can recover ETH in case non-activity. Default is 5 minute. (Default=300000)
     2. `REACT_APP_POLL_FREQUENCY`: Polling frequency to check if the other player has reacted. (Default=5000)
-5. Get dependencies:
+6. Get dependencies:
    ``` 
    npm install
    ```
-6. Run the app:
+7. Run the app:
    ``` 
    npm start
    ```
