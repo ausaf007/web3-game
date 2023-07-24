@@ -13,7 +13,6 @@ const pollFrequency = Number(process.env.REACT_APP_POLL_FREQUENCY);
 
 function StartGame() {
 
-    // Clearing any old game data
     const [amount, setAmount] = useState('');
     const [player2Address, setPlayer2Address] = useState('');
     const [move, setMove] = useState('Rock');
@@ -63,7 +62,9 @@ function StartGame() {
     };
 
     const startGame = async () => {
+        // Clearing any old game data
         resetGameState();
+        
         const provider = await detectEthereumProvider();
         if (!provider) {
             swal("Error!", "Please install MetaMask to use this dapp!", "error");
