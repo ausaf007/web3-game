@@ -7,7 +7,6 @@ import MoveSelector from './MoveSelector';
 import detectEthereumProvider from '@metamask/detect-provider';
 import swal from 'sweetalert';
 
-const hasherContractAddress = process.env.REACT_APP_HASHER_CONTRACT_ADDRESS;
 const timeout = Number(process.env.REACT_APP_TIMEOUT);
 const pollFrequency = Number(process.env.REACT_APP_POLL_FREQUENCY);
 
@@ -81,6 +80,12 @@ function StartGame() {
             const accounts = await web3.eth.getAccounts();
 
             const moveInt = moveMapping[move];
+
+            // Deploy Hasher Contract
+            const HasherContract = new web3.eth.Contract(Hasher.abi);
+            const hasherInstance = await HasherContract.deploy({ data: Hasher.bytecode })
+                .send({ from: accounts[0] });
+            const hasherContractAddress = hasherInstance.options.address;
 
             // Generate a large random salt number for uint256
             const generatedSalt = generateSalt();
